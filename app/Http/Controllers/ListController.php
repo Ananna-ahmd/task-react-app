@@ -14,7 +14,7 @@ class ListController extends Controller
      */
     public function index()
     {
-        $lists = TaskList::where('user_id', auth()->id())->with('tasks')->get();
+        $lists = TaskList::where('user_id', auth()->id())->get();
         return Inertia::render('Lists/index',[
             'lists' => $lists,
             'flash' => [session('success'),
